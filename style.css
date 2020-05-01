@@ -24,7 +24,7 @@ html{
 }
 
 body{
-    font-family: sans-serif;
+    font-family: "Lato", sans-serif;
     color: #7a7777;                                     /*instead of #aaaaaa*/
     font-weight: 300;
     line-height: 1.6;
@@ -36,7 +36,7 @@ body{
 
 .container{
     display: grid;
-    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);      
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);      /*ALL the 6 Rows*/
     grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] 
     minmax(6rem, 1fr) [center-start] repeat(8, [col-start] 
     minmax(min-content, 14rem) [col-end] )[center-end] minmax(6rem, 1fr) 
@@ -51,10 +51,10 @@ body{
 /***SIDEBAR-SECTION***/
 .sidebar{
     grid-column: sidebar-start / sidebar-end;
-    grid-row: 1 / -1;                                        /*Takes ALL the GRID ROWS space. from top (1) to bottom (-1)*/
+    grid-row: 1 / -1;                                    /*Takes ALL the GRID ROWS space. from top (1) to bottom (-1)*/
     background-color: #b17935;
     display: flex;
-    justify-content: center;                                  /*To center all the items OR the button*/
+    justify-content: center;                             /*To center all the items OR the button*/
 }
 
 .nav-btn{
@@ -210,26 +210,26 @@ body{
     display: grid;
     grid-template-columns: min-content 1fr;
     grid-row-gap: 1.5rem;
-    grid-column-gap: 2.5rem;
+    grid-column-gap: 1.6rem;
 }
 
 .icon{
     grid-row: 1 / span 2;                                      /*NOTE: -1 does not work with implicit grid 
                                                                 (grid whose rows are not defined), hence the use of span 2*/
-    transform: translateY(-1.5rem);                             /*To move the icon 1rem up*/
+    transform: translateY(-1rem);                             /*To move the icon 1rem up*/
 }
 
-.icon-img{ 
-    width: 5rem;
-    height: 5rem;
+.feature_icon{
+    font-size: 3rem;
+    color: #b17935;
 }
 
 .heading-4{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .feature-text{
-    font-size: 1.6rem;
+    font-size: 1.3rem;
 }
 
 /***STORY-SECTION***/
@@ -534,4 +534,184 @@ body{
     text-align: center;
     padding: 2rem;
     margin: 6rem auto 0 auto;
+}
+
+
+/*Responsive Media queries*/
+@media only screen and (max-width: 112.5em){                  /* 1em = 16px, 1800/16 = 112.5em*/
+    html{
+      font-size: 75%;                                          /* if 1rem = 12px, 12/16 X 100 = 75%*/
+    }
+}
+
+@media only screen and (max-width: 75em){                     /* 1em = 16px, 1200px/16 = 75em*/
+    html{
+        font-size: 56.5%;                                     /* if 1rem = 9px, 9/16 X 100 = 56.25%*/
+    }
+}
+
+@media only screen and (max-width: 48em){                     /* 1em = 16px, 768px/16 = 48em*/
+    html{
+      font-size: 50%;                                         /* if 1rem = 8px, 8/16 X 100 = 50%*/
+    }   
+
+    .container{
+        grid-template-rows: repeat(9, min-content);                
+    }
+
+    /***SIDEBAR-SECTION***/
+    .sidebar{
+        padding: 1rem 3rem 3.5rem 2rem; 
+        grid-column: sidebar-start / full-end;  
+        grid-row: 1 / 1;                                       
+        justify-content: flex-end;                             
+    }
+
+    .sidebar p{
+        color: aliceblue;   /*changed remove*/
+    }
+
+    .nav-btn{
+        margin-top: 0;
+    }
+
+    .nav-btn::before{
+        transform: translateY(0); 
+    }
+    .nav-btn::after{
+        transform: translateY(0);
+    }
+
+    /***HEADER-SECTION***/
+    .header{
+        grid-column: sidebar-start / full-end;      
+        grid-row-gap: 3rem; 
+        padding: 0 0 8rem 0;  
+        background-image: linear-gradient(rgba(16, 29, 44, .50), 
+        rgba(16, 29, 44, .93)), url('images/bg2.jpg');  
+    }
+
+
+    /***REALTOR-SECTION***/
+    .realtors{
+        grid-column: sidebar-start / full-end;      
+        grid-row: 3 / 3;                
+        display: block;   
+        text-align: center;
+    }
+
+    .realtors-heading{
+        margin: 1.5rem 0;
+    }
+
+    .realtors__list{
+        display: grid; 
+        grid-template-rows: auto;
+        grid-template-columns: min-content max-content repeat(4, max-content);        
+        grid-column-gap: 1.5rem;                                
+        align-content: center;  
+        justify-content: center;  
+        justify-items: center;   
+    }
+
+    .realtor-img{
+        width: 5rem;
+    }
+
+    .realtor-img:not(:first-child){ 
+        margin-left: 3rem;  
+    }
+
+
+    /***FEATURE-SECTION***/
+    .features{
+        margin: 2rem 0 5rem 0; 
+        display: block;                                       
+        grid-template-columns: 0; 
+        grid-gap: 0; 
+    }
+
+    .feature{
+        grid-template-columns: min-content 1fr;
+        grid-row-gap: 0; 
+        margin-top: 2.5rem;  
+    }
+
+    .heading-4{
+        font-size: 1.8rem;
+    }
+
+    .feature-text{
+        font-size: 1.6rem; 
+        line-height: 1.2; 
+    }
+
+    /***STORY-SECTION***/
+    .story__pictures{
+        grid-column: center-start / center-end;      
+        padding-right: 2rem;
+    }
+
+    .story__contents{
+        grid-column: sidebar-start / full-end;      
+    }
+
+    .btn{
+        font-size: 1.2rem;
+    }
+
+    /***HOMES-SECTION***/
+    .homes{
+        grid-column: full-start / center-end;                 
+        margin: 10rem 0;  
+        align-content: center;  
+        justify-content: center;  
+        justify-items: center;
+
+    }
+
+    .home__imagebox{
+        height: 30rem;
+    }
+
+    /***GALLERY-SECTION***/
+    .gallery{
+        grid-column: sidebar-start / full-end;      
+    }
+
+
+    /***FOOTER-SECTION***/
+    .footer{
+        grid-column: sidebar-start / full-end;      
+        padding: 3rem 3rem 1.5rem 3rem;  
+    }
+
+    .nav{
+        grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));  
+        grid-gap: .5rem;  
+    }
+
+    .nav__link:link,
+    .nav__link:visited{
+        font-size: 1rem; 
+        padding: 1rem 0; 
+    }
+
+    .copyright{
+        width: 70%; 
+        padding: 0;  
+        margin: 4rem auto 0 auto; 
+    }
+
+}
+
+@media only screen and (max-width: 37.5em){                                   /* 1em = 16px, 600px/16 = 37.5em*/
+    html{
+      font-size: 31.25%;
+    }
+
+    /***HOMES-SECTION***/
+   .homes{
+        grid-column: center-start / col-end 7;    
+   }
 }
