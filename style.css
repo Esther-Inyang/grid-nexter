@@ -97,8 +97,20 @@ body{
     background-size: cover;
 }
 
+.nexter-div{
+    display: flex;
+    justify-content: center;
+}
+
+.nexter{
+    color: #b17935;
+    font-weight: 500;
+    font-size: 2rem;
+    margin: -.5rem 0 0 .5rem;
+}
+
 .nexter-logo{
-    height: 3rem;
+    height: 2.5rem;
     justify-self: center;
 }
 
@@ -120,7 +132,8 @@ body{
 }
 
 .header__seenon-text{
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    font-weight: 700;
     display: grid;
     grid-template-columns: 1fr max-content 1fr;
     grid-column-gap: 1.5rem;
@@ -143,8 +156,8 @@ body{
 }
 
 .header__seenon-logos img{
-    width: 10rem;
-    height: 5rem;
+    width: 7rem;
+    height: 3.2rem;
     filter: brightness(70%);
 }
 
@@ -163,7 +176,7 @@ body{
 
 .realtors-heading{
     color: #b17935;
-    font-weight: 400;
+    font-weight: 700;
     text-transform: uppercase;
 }
 
@@ -187,11 +200,9 @@ body{
 }
 
 .realtors-sold{
-    margin-top: -3px;
-    color: #f9f7f6;
     text-transform: uppercase;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: .9rem;
+    font-weight: 900;
 }
 
 
@@ -325,6 +336,11 @@ body{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-row-gap: 3.5rem;
+    box-shadow: 0 .5rem 1.5rem rgb(0, 0, 0, .5);
+}
+
+.home:hover{
+    box-shadow: 0 .5rem 1.5rem rgb(0, 0, 0, .5);
 }
 
 .home__imagebox{
@@ -351,11 +367,7 @@ body{
     justify-self: end; 
     margin: 1rem;                                                   /*this will justify ONLY this cell item 
                                                                     at the TOP the the END*/
-    background-color: #7a7777;
-}
-
-.heart-icon{
- width: 2rem;
+    /*background-color: #7a7777;*/
 }
 
 .home-name{
@@ -390,15 +402,25 @@ body{
     align-items: center;                                            /*to vertically center items*/
 }
 
+.home__location p,
+.home__rooms p,
+.home__area p,
+.home__price p{
+    margin-left: .7rem;
+}
 
-.home__location-icon img,
-.home__rooms-icon img,
-.home__area-icon img,
-.home__price-icon img{
-    height: 2rem;
-    width: 2rem;
-    background-color: #7a7777; /*the svg color fill primary*/
-    margin-right: 1rem;
+
+.home__location-icon,
+.home__rooms-icon,
+.home__area-icon,
+.home__price-icon{
+    font-size: 2rem;
+    color: #b17935;
+}
+
+.heart-icon-box{
+    font-size: 2rem;
+    color: #b17935;
 }
 
 .home-btn{
@@ -591,6 +613,10 @@ body{
         rgba(16, 29, 44, .93)), url('images/bg2.jpg');  
     }
 
+    .nexter-div{
+        margin-top: 3rem;
+    }
+
 
     /***REALTOR-SECTION***/
     .realtors{
@@ -625,6 +651,7 @@ body{
 
     /***FEATURE-SECTION***/
     .features{
+        grid-column: full-start / center-end;
         margin: 2rem 0 5rem 0; 
         display: block;                                       
         grid-template-columns: 0; 
@@ -648,12 +675,11 @@ body{
 
     /***STORY-SECTION***/
     .story__pictures{
-        grid-column: center-start / center-end;      
-        padding-right: 2rem;
+        grid-column: full-start / center-end;      
     }
 
     .story__contents{
-        grid-column: sidebar-start / full-end;      
+        grid-column: full-start / center-end 7;      
     }
 
     .btn{
@@ -673,6 +699,13 @@ body{
     .home__imagebox{
         height: 30rem;
     }
+
+   .home__location,
+   .home__rooms,
+   .home__area,
+   .home__price{
+       padding-left: 3rem;
+   }
 
     /***GALLERY-SECTION***/
     .gallery{
@@ -712,6 +745,14 @@ body{
 
     /***HOMES-SECTION***/
    .homes{
-        grid-column: center-start / col-end 7;    
+        grid-column: full-start / col-end 7; 
+        margin-left: 5rem;   
+   }
+
+   .home__location,
+   .home__rooms,
+   .home__area,
+   .home__price{
+       padding-left: 4rem;
    }
 }
